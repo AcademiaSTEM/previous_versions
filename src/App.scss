@@ -1,3 +1,7 @@
+:root {
+  --menuHeight: 50.6px;
+}
+
 .p-card {
   display: block !important;
   margin-bottom: 0 !important;
@@ -12,7 +16,4 @@
     border-top-right-radius: 0.375rem;
     border-top-left-radius: 0.375rem;
   }
-  // .p-card-body {
-  //   padding: 2.5rem;
-  // }
 }

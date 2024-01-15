@@ -8,7 +8,17 @@
 
       <Divider />
       <h2>Donde programar</h2>
-      <p>dandksa</p>
+      <p>
+        Como curso, queremos que puedas programar desde cualquier lugar,
+        por lo que te invitamos a utilizar cualquiedar de
+        las alternativas de "Python Online" que se encuentran disponibles en la red.
+      </p>
+      <div class="inline-flex justify-content-center full-width">
+        <a href="https://www.google.cl" class="p-button google">
+          <img :src="googleIcon" />
+          Python Online
+        </a>
+      </div>
 
       <Divider />
       <h2>Clases</h2>
@@ -19,6 +29,10 @@
         :key="info.id"
         class="flex col-12 md:col-5" />
       </div>
+      
+      <Divider />
+      <h2>Resumen</h2>
+      <vue-pdf-app v-if="pdfFile" style="height: 500px;" :pdf="pdfFile" />
     </div>
   </div>
 </template>
@@ -33,8 +47,12 @@ export default {
     ClassCard,
   },
   data() {
+    const googleIcon = new URL('../../public/googleIcon.png', import.meta.url).href;
+    const pdfFile = new URL(`../../public/Resumen Sintaxis.pdf`, import.meta.url).href;
     return {
       classes: info,
+      googleIcon,
+      pdfFile,
     };
   },
 };
@@ -43,6 +61,7 @@ export default {
 <style scoped lang="scss">
 header {
   text-align: center;
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   h1 {
     margin-bottom: 0;
@@ -51,5 +70,20 @@ header {
   h4 {
     margin-bottom: 0;
   }
+}
+.google {
+  background: white;
+  border-color: white;
+  border-radius: 50vh;
+  color: black;
+  display: flex;
+  width: 50vw;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  img {
+    padding-right: 1rem;
+  }
+}
+.full-width {
+  width: 100%;
 }
 </style>

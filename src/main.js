@@ -14,6 +14,7 @@ import PrimeVue from 'primevue/config';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Divider from 'primevue/divider';
+import Menubar from "primevue/menubar";
 
 import VuePdfApp from "vue3-pdf-app";
 import "vue3-pdf-app/dist/icons/main.css";
@@ -29,6 +30,7 @@ app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 app.component('Button', Button);
 app.component('Card', Card);
 app.component('Divider', Divider);
+app.component('Menubar', Menubar);
 app.component('VuePdfApp', VuePdfApp);
 
 app.mount('#app');

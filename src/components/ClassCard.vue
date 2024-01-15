@@ -1,7 +1,7 @@
 <template>
   <Card :pt="style_option">
     <template #header>
-        <img :src="image" />
+        <img :src="imageUrl" />
     </template>
     <template #title>Clase {{ number }}</template>
     <template #subtitle>{{ title }}</template>
@@ -29,12 +29,14 @@ export default {
     },
   },
   data(props) {
+    const imageUrl = new URL(`../../public/classes/${props.info.link}/banner.jpg`, import.meta.url).href;
     return {
       ...props.info,
+      imageUrl,
       style_option: {
         root: { class: 'flex flex-grow-1' },
         body: { class: 'flex flex-column', style: 'width: 100%' },
-        // content: { class: 'flex-grow-1' },
+        content: { class: 'flex-grow-1' },
         footer: { class: 'inline-flex justify-content-center' },
       },
     };
@@ -43,7 +45,7 @@ export default {
     selectClass() {
       router.push({
         name: "Class",
-        params: { id: this.number },
+        params: { id: this.link },
       });
     }
   }

@@ -8,7 +8,7 @@
 
       <Divider />
       <h2>Presentación</h2>
-      <vue-pdf-app style="height: 500px;" :pdf="pdfFile" />
+      <vue-pdf-app v-if="pdfFile" style="height: 500px;" :pdf="pdfFile" />
 
       <Divider />
       <h2>Código</h2>
@@ -31,14 +31,16 @@ export default {
     const classInfo = info[this.$route.params.id]
     return {
       ...classInfo,
-      pdfFile: `../../public/classes/${this.$route.params.id}/${classInfo.pdf}`,
+      pdfFile: undefined,
       mardkownContent: undefined,
     };
   },
   async created() {
-    const mardkownFile = new URL(`../../public/classes/${this.$route.params.id}/code.md`, import.meta.url).href
-    const mardkownContent = await fetch(mardkownFile).then((r) => r.text())
+    const pdfFile = new URL(`../../public/classes/${this.$route.params.id}/${this.pdf}`, import.meta.url).href; 
+    const mardkownFile = new URL(`../../public/classes/${this.$route.params.id}/code.md`, import.meta.url).href;
+    const mardkownContent = await fetch(mardkownFile).then((r) => r.text());
     this.mardkownContent = mardkownContent;
+    this.pdfFile = pdfFile;
   },
 };
 </script>
