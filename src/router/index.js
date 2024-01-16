@@ -11,8 +11,8 @@ const router = createRouter({
       component: MainView,
     },
     {
-      path: "/class/:id",
-      name: "Class",
+      path: '/class/:id',
+      name: 'Class',
       component: ClassView,
       props: true,
     },

@@ -3,17 +3,17 @@
 </template>
 
 <script>
-import router from "../router";
+import router from '../router';
 
 export default {
-  name: "MenuBar",
+  name: 'MenuBar',
   data() {
     return {
       items: [
         {
-          icon: "pi pi-home",
-          label: "Inicio",
-          command: () => router.push({ path: "/" }),
+          icon: 'pi pi-home',
+          label: 'Inicio',
+          command: () => router.push({ path: '/' }),
         },
       ],
     };

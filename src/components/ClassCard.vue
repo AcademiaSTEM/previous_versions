@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import router from "../router";
+import router from '../router';
 
 export default {
   name: 'RoleCard',
@@ -44,10 +44,10 @@ export default {
   methods: {
     selectClass() {
       router.push({
-        name: "Class",
+        name: 'Class',
         params: { id: this.link },
       });
-    }
-  }
+    },
+  },
 };
 </script>
