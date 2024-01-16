@@ -11,7 +11,6 @@ En caso de utilizar más de un `print`, cada uno de estos será una nueva línea
 ```python
 print('Hola soy Pepa')
 print("Hola soy Luna")
-print('Hola soy perro playero')
 ```
 
 Pero hay tener cuidado con las comillas, si no usamos las mismas para abrir y cerrar se producirá un error.
