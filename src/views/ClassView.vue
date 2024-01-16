@@ -19,20 +19,12 @@
 
 <script>
 import MarkdownIt from 'markdown-it';
-import hljs from 'highlight.js';
 import info from '../storage/info';
+import highlight from '../utils/highlight';
 
 export default {
   name: 'ClassView',
   setup() {
-    const highlight = (str, lang) => {
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          return hljs.highlight(str, { language: lang }).value;
-        } catch (__) { /* empty */ }
-      }
-      return ''; // use external default escaping
-    };
     const markdown = new MarkdownIt({ highlight });
     return { markdown };
   },
