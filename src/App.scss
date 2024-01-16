@@ -21,10 +21,10 @@
 .code {
   width: auto !important;
   height: auto !important;
-}
-.code_area {
-  height: auto !important;
-  padding-bottom: 1rem;
+  .code_area {
+    height: auto !important;
+    padding-bottom: 1rem;
+  }
 }
 
 pre {
@@ -32,4 +32,15 @@ pre {
   background: #282c34;
   padding: 2rem;
   border-radius: 1rem;
+  code {
+    background: initial;
+    padding: initial;
+    border-radius: initial;
+  }
+}
+
+code {
+  background: lightgrey;
+  padding: 1px 5px;
+  border-radius: 4px;
 }
