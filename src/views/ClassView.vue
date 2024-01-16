@@ -19,16 +19,25 @@
 
 <script>
 import MarkdownIt from 'markdown-it';
-import info from '../storage/info.js';
+import hljs from 'highlight.js';
+import info from '../storage/info';
 
 export default {
   name: 'ClassView',
   setup() {
-    const markdown = new MarkdownIt();
+    const highlight = (str, lang) => {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(str, { language: lang }).value;
+        } catch (__) {}
+      }
+      return ''; // use external default escaping
+    };
+    const markdown = new MarkdownIt({ highlight });
     return { markdown };
   },
   data() {
-    const classInfo = info[this.$route.params.id]
+    const classInfo = info[this.$route.params.id];
     return {
       ...classInfo,
       pdfFile: undefined,
@@ -36,7 +45,7 @@ export default {
     };
   },
   async created() {
-    const pdfFile = new URL(`../../public/classes/${this.$route.params.id}/${this.pdf}`, import.meta.url).href; 
+    const pdfFile = new URL(`../../public/classes/${this.$route.params.id}/${this.pdf}`, import.meta.url).href;
     const mardkownFile = new URL(`../../public/classes/${this.$route.params.id}/code.md`, import.meta.url).href;
     const mardkownContent = await fetch(mardkownFile).then((r) => r.text());
     this.mardkownContent = mardkownContent;

@@ -16,6 +16,7 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.20.1",
+    "highlight.js": "^11.9.0",
     "markdown-it": "^14.0.0",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",

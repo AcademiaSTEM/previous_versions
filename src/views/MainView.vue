@@ -10,10 +10,11 @@
       <h2>Donde programar</h2>
       <p>
         Como curso, queremos que puedas programar desde cualquier lugar,
-        por lo que te invitamos a utilizar cualquiedar de
-        las alternativas de "Python Online" que se encuentran disponibles en la red.
+        por lo que te invitamos a utilizar cualquiera de
+        las alternativas de <span class="font-bold">"Python Online"</span>
+        que se encuentran disponibles en la red.
       </p>
-      <div class="inline-flex justify-content-center full-width">
+      <div class="inline-flex justify-content-center full-width px-0 sm:px-5 md:px-8">
         <a href="https://www.google.cl" class="p-button google">
           <img :src="googleIcon" />
           Python Online
@@ -29,7 +30,7 @@
         :key="info.id"
         class="flex col-12 md:col-5" />
       </div>
-      
+
       <Divider />
       <h2>Resumen</h2>
       <vue-pdf-app v-if="pdfFile" style="height: 500px;" :pdf="pdfFile" />
@@ -39,7 +40,7 @@
 
 <script>
 import ClassCard from '../components/ClassCard.vue';
-import info from '../storage/info.js';
+import info from '../storage/info';
 
 export default {
   name: 'MainView',
@@ -48,7 +49,7 @@ export default {
   },
   data() {
     const googleIcon = new URL('../../public/googleIcon.png', import.meta.url).href;
-    const pdfFile = new URL(`../../public/Resumen Sintaxis.pdf`, import.meta.url).href;
+    const pdfFile = new URL('../../public/Resumen Sintaxis.pdf', import.meta.url).href;
     return {
       classes: info,
       googleIcon,
@@ -73,11 +74,11 @@ header {
 }
 .google {
   background: white;
-  border-color: white;
+  border-color: #FFFFFF00;
   border-radius: 50vh;
   color: black;
   display: flex;
-  width: 50vw;
+  width: 100%;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   img {
     padding-right: 1rem;

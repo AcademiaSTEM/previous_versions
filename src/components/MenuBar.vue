@@ -12,6 +12,7 @@ export default {
       items: [
         {
           icon: "pi pi-home",
+          label: "Inicio",
           command: () => router.push({ path: "/" }),
         },
       ],

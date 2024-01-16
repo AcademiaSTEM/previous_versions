@@ -7,20 +7,27 @@ import 'primevue/resources/themes/tailwind-light/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
-import 'prismjs/themes/prism-coy.css';
 import './assets/styles/layout.scss';
 
 import PrimeVue from 'primevue/config';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Divider from 'primevue/divider';
-import Menubar from "primevue/menubar";
+import Menubar from 'primevue/menubar';
 
-import VuePdfApp from "vue3-pdf-app";
-import "vue3-pdf-app/dist/icons/main.css";
+import VuePdfApp from 'vue3-pdf-app';
+import 'vue3-pdf-app/dist/icons/main.css';
+
+import hljs from 'highlight.js/lib/core';
+import bash from 'highlight.js/lib/languages/bash';
+import python from 'highlight.js/lib/languages/python';
+import 'highlight.js/styles/rainbow.css';
 
 import App from './App.vue';
 import router from './router';
+
+hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('python', python);
 
 const app = createApp(App);
 
