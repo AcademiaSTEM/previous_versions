@@ -14,19 +14,22 @@
       <h2>Código</h2>
       <div v-if="mardkownContent" v-html="markdown.render(mardkownContent)" />
 
-      <component v-if="extra" :is="comp" />
+      <Class2ExtraInformation v-if="link === 2" />
     </div>
   </div>
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
 import MarkdownIt from 'markdown-it';
 import info from '../storage/info';
 import highlight from '../utils/highlight';
+import Class2ExtraInformation from '../components/extras/2/Component.vue';
 
 export default {
   name: 'ClassView',
+  components: {
+    Class2ExtraInformation,
+  },
   setup() {
     const markdown = new MarkdownIt({ highlight });
     return { markdown };
@@ -45,16 +48,6 @@ export default {
     const mardkownContent = await fetch(mardkownFile).then((r) => r.text());
     this.mardkownContent = mardkownContent;
     this.pdfFile = pdfFile;
-  },
-  computed: {
-    comp() {
-      if (!this.extra) {
-        return;
-      }
-      const file = new URL(`../../public/classes/${this.$route.params.id}/${this.extra}`, import.meta.url).href;
-      // eslint-disable-next-line consistent-return
-      return defineAsyncComponent(() => import(file /* @vite-ignore */));
-    },
   },
 };
 </script>

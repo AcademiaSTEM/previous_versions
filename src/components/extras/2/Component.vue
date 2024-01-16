@@ -41,10 +41,10 @@
 
 <script>
 import MarkdownIt from 'markdown-it';
-import highlight from '../../../src/utils/highlight';
+import highlight from '../../../utils/highlight';
 
 export default {
-  name: 'ExtraInformation',
+  name: 'Class2ExtraInformation',
   setup() {
     const markdown = new MarkdownIt({ highlight });
     return { markdown };
