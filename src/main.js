@@ -14,6 +14,8 @@ import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Divider from 'primevue/divider';
 import Menubar from 'primevue/menubar';
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
 
 import VuePdfApp from 'vue3-pdf-app';
 import 'vue3-pdf-app/dist/icons/main.css';
@@ -38,6 +40,8 @@ app.component('Button', Button);
 app.component('Card', Card);
 app.component('Divider', Divider);
 app.component('Menubar', Menubar);
+app.component('TabView', TabView);
+app.component('TabPanel', TabPanel);
 app.component('VuePdfApp', VuePdfApp);
 
 app.mount('#app');

@@ -23,7 +23,7 @@
 
       <Divider />
       <h2>Clases</h2>
-      <div class="grid align-items-stretch gap-3">
+      <div class="grid align-items-stretch gap-3 px-0 sm:px-5 md:px-8">
         <ClassCard
         v-for="info in classes"
         :info="info"
