@@ -44,3 +44,11 @@ code {
   padding: 1px 5px;
   border-radius: 4px;
 }
+
+.p-tabview-panel {
+  div {
+    pre {
+      margin: 0 !important;
+    }
+  }
+}
