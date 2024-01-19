@@ -6,9 +6,11 @@
         <h1>{{ title }}</h1>
       </header>
 
+      <div v-if="pdf">
       <Divider />
       <h2>Presentación</h2>
       <vue-pdf-app v-if="pdfFile" style="height: 500px;" :pdf="pdfFile" />
+      </div>
 
       <Divider />
       <h2>Código</h2>
@@ -43,11 +45,13 @@ export default {
     };
   },
   async created() {
+    if (this.pdf) {
     const pdfFile = new URL(`../../public/classes/${this.$route.params.id}/${this.pdf}`, import.meta.url).href;
+      this.pdfFile = pdfFile;
+    }
     const mardkownFile = new URL(`../../public/classes/${this.$route.params.id}/code.md`, import.meta.url).href;
     const mardkownContent = await fetch(mardkownFile).then((r) => r.text());
     this.mardkownContent = mardkownContent;
-    this.pdfFile = pdfFile;
   },
 };
 </script>
