@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '/',
+  base: '/previous_versions',
   cors: true,
   server: {
     watch: {
