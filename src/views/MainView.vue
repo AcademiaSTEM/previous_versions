@@ -29,34 +29,92 @@
         :info="info"
         :key="info.id"
         class="flex col-12 md:col-5" />
+        <ProjectCard class="flex col-12 md:col-5" />
         <div
-        v-if="classes.length % 2"
-        class="flex col-0 md:col-5 flex-grow-1" />
+         v-if="((classes.length + 1) % 2) && (windowWidth >= 576)"
+         class="flex col-0 md:col-5 flex-grow-1"
+        />
       </div>
 
       <Divider />
       <h2>Resumen</h2>
       <vue-pdf-app v-if="pdfFile" style="height: 500px;" :pdf="pdfFile" />
+
+      <Divider />
+      <h2>Fotos</h2>
+      <p>Fotos tomadas el día de la última clase 🐢💕.</p>
+      <Carousel
+        :value="photos"
+        :numVisible="1"
+        :numScroll="1"
+        circular
+        :autoplayInterval="3000"
+        :orientation="windowWidth < 576 ? 'vertical' : 'horizontal'"
+        verticalViewPortHeight="225px"
+      >
+        <template #item="slotProps">
+          <div class="flex align-items-center justify-content-center">
+            <img :src="slotProps.data" class="w-12 shadow-2" />
+          </div>
+        </template>
+      </Carousel>
+
+      <h2>Historias de un computador</h2>
+      <p>
+        Aprovecho de dejarles algunas fotos de lo que el
+        proceso de reparar el computador que se cayó en clases.
+        Cabres, tengan cuidado con los alargadores-zapatillas 🔌.
+      </p>
+      <Carousel
+        :value="computer"
+        :numVisible="1"
+        :numScroll="1"
+        circular
+        :autoplayInterval="3000"
+        :orientation="windowWidth < 576 ? 'vertical' : 'horizontal'"
+        verticalViewPortHeight="225px"
+      >
+        <template #item="slotProps">
+          <div class="flex align-items-center justify-content-center">
+            <img :src="slotProps.data" class="w-12 shadow-2" />
+          </div>
+        </template>
+      </Carousel>
     </div>
   </div>
 </template>
 
 <script>
+import { useWindowSize } from '@vueuse/core';
 import ClassCard from '../components/ClassCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 import info from '../storage/info';
 
 export default {
   name: 'MainView',
   components: {
     ClassCard,
+    ProjectCard,
   },
   data() {
+    const { width } = useWindowSize();
     const googleIcon = new URL('../../public/googleIcon.png', import.meta.url).href;
     const pdfFile = new URL('../../public/Resumen Sintaxis.pdf', import.meta.url).href;
+    const photos = Array(4).fill().map((__, i) => {
+      const path = new URL(`../../public/images/grupo_${i + 1}.jpg`, import.meta.url).href;
+      return path;
+    });
+    const computer = Array(3).fill().map((__, i) => {
+      const path = new URL(`../../public/images/computer_${i + 1}.jpg`, import.meta.url).href;
+      return path;
+    });
     return {
       classes: info,
       googleIcon,
       pdfFile,
+      photos,
+      computer,
+      windowWidth: width,
     };
   },
 };

@@ -46,7 +46,7 @@ export default {
   },
   async created() {
     if (this.pdf) {
-    const pdfFile = new URL(`../../public/classes/${this.$route.params.id}/${this.pdf}`, import.meta.url).href;
+      const pdfFile = new URL(`../../public/classes/${this.$route.params.id}/${this.pdf}`, import.meta.url).href;
       this.pdfFile = pdfFile;
     }
     const mardkownFile = new URL(`../../public/classes/${this.$route.params.id}/code.md`, import.meta.url).href;

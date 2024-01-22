@@ -12,6 +12,7 @@ import './assets/styles/layout.scss';
 import PrimeVue from 'primevue/config';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
+import Carousel from 'primevue/carousel';
 import Divider from 'primevue/divider';
 import Menubar from 'primevue/menubar';
 import TabView from 'primevue/tabview';
@@ -38,6 +39,7 @@ app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 
 app.component('Button', Button);
 app.component('Card', Card);
+app.component('Carousel', Carousel);
 app.component('Divider', Divider);
 app.component('Menubar', Menubar);
 app.component('TabView', TabView);
