@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import MainView from '../views/MainView.vue';
 import ClassView from '../views/ClassView.vue';
+import ProjectView from '../views/ProjectView.vue';
 import PageNotFoundView from '../views/PageNotFoundView.vue';
 import info from '../storage/info';
 
@@ -24,6 +25,11 @@ const router = createRouter({
           return { name: 'PageNotFound' };
         }
       },
+    },
+    {
+      path: '/project',
+      name: 'Project',
+      component: ProjectView,
     },
     {
       path: '/:pathMatch(.*)*',

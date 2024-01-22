@@ -35,10 +35,4 @@ export default [
     title: 'Cierre',
     pdf: 'Clase 5 - Cierre.pdf',
   },
-  {
-    link: 6,
-    number: 5,
-    title: 'Feria de conocimientos',
-    pdf: undefined,
-  },
 ];
