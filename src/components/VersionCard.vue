@@ -30,7 +30,7 @@ export default {
   data(props) {
     const imageUrl = new URL(`../assets/images/${props.info.year}_s${props.info.version_id}.jpg`, import.meta.url).href;
     let versionUrl = 'https://academiastem.github.io/';
-    if (!props.info.version.includes('actual')) {
+    if (!props.info.version.toLowerCase().includes('actual')) {
       versionUrl += `${props.info.year}_s${props.info.version_id}`;
     }
     return {
