@@ -36,7 +36,8 @@ export default {
     const { width } = useWindowSize();
     return {
       versions: [
-        { year: 2025, version_id: 1, version: 'Actual' },
+        { year: 2026, version_id: 0, version: 'Actual' },
+        { year: 2025, version_id: 0, version: 'Única semana' },
         { year: 2024, version_id: 2, version: 'Segunda semana' },
         { year: 2024, version_id: 1, version: 'Primera semana' },
       ],

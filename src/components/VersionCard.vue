@@ -1,7 +1,7 @@
 <template>
     <Card :pt="style_option">
       <template #header>
-          <img :src="imageUrl" />
+          <img :src="imagePath" />
       </template>
       <template #title>{{ year }}</template>
       <template #subtitle>{{ version }}</template>
@@ -28,14 +28,15 @@ export default {
     },
   },
   data(props) {
-    const imageUrl = new URL(`../assets/images/${props.info.year}_s${props.info.version_id}.jpg`, import.meta.url).href;
+    const version = props.info.version_id === 0 ? `${props.info.year}` : `${props.info.year}_s${props.info.version_id}`;
+    const imagePath = new URL(`../assets/images/${version}.jpg`, import.meta.url).href;
     let versionUrl = 'https://academiastem.github.io/';
     if (!props.info.version.toLowerCase().includes('actual')) {
-      versionUrl += `${props.info.year}_s${props.info.version_id}`;
+      versionUrl += `${version}`;
     }
     return {
       ...props.info,
-      imageUrl,
+      imagePath,
       versionUrl,
       style_option: {
         root: { class: 'flex flex-grow-1' },
